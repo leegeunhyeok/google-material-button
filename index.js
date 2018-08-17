@@ -1,25 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  /* 마우스 키가 눌릴 때 이벤트 */
-  document.getElementById('btn-1').onmousedown = addRippleEffact
-  document.getElementById('btn-2').onmousedown = addRippleEffact
-
-})
-
 /**
  * @description Ripple 이펙트 영역을 생성하고 추가합니다.
  * @param {MouseEvent} e 마우스 이벤트 객체
  */
 function addRippleEffact (e) {
-  console.log(e.offsetX, e.offsetY)
-  const area = this.children[0]
+  const $this = this
   const size = Math.max(this.offsetWidth, this.offsetHeight)
   const x = e.offsetX
   const y = e.offsetY
   const ripple = createRippleElement(x, y, size)
   ripple.addEventListener('animationend', function () {
-    area.removeChild(this)
+    $this.removeChild(this)
   })
-  area.appendChild(ripple)
+  this.appendChild(ripple)
 }
 
 /**
@@ -37,3 +29,20 @@ function createRippleElement (x, y, size) {
   div.style.width = div.style.height = size + 'px'
   return div
 }
+
+// 전역 객체에 $material 등록
+window.$material = {
+  button: function (el) {
+    el.onmousedown = addRippleEffact
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const el_1 = document.getElementById('btn-1')
+  const el_2 = document.getElementById('btn-2')
+
+  $material.button(el_1)
+  $material.button(el_2)
+
+})

@@ -2,7 +2,7 @@ body {
   background-color: #eee;
 }
 
-button {
+.btn {
   position: relative;
   outline: none;
   border: none;
@@ -24,6 +24,11 @@ button {
   position: absolute;
   border-radius: 50%;
 }
+
+
+
+
+/* 색상은 blue 클래스만 정의함. 추후 원하는 색상 추가하여 사용 */
 
 .blue-default {
   color: #fff;
