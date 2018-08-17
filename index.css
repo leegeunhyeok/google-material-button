@@ -1,0 +1,60 @@
+body {
+  background-color: #eee;
+}
+
+button {
+  position: relative;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: .08em;
+}
+
+.ripple {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.blue-default {
+  color: #fff;
+  background-color: dodgerblue;
+}
+
+.blue-default .ripple {
+  background-color: #fff;
+  animation: ripple .8s;
+}
+
+
+.blue-text {
+  color: dodgerblue;
+  background: none;
+  box-shadow: none;
+}
+
+.blue-text .ripple {
+  background-color: dodgerblue;
+  animation: ripple .8s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
