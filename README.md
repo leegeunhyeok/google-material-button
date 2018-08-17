@@ -27,13 +27,11 @@
 - Javascript
 
 ```javascript
-document.addEventListener('DOMContentLoaded', function () {
-  const e1 = document.getElementById('btn-1')
-  const e2 = document.getElementById('btn-2')
+const e1 = document.getElementById('btn-1')
+const e2 = document.getElementById('btn-2')
 
-  $material.button(e1)
-  $material.button(e2)
-})
+$material.button(e1)
+$material.button(e2)
 ```
 
 # 정보
